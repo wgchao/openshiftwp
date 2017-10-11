@@ -6,11 +6,11 @@ $flag = $_REQUEST['flag'];
 //echo $flag;
 if($flag==2)
 {
-  $urlhttps = "http://www.glimmer.cn/wp-json/wp/v2/posts/".$_REQUEST['id'];
+  $urlhttps = "http://glimmer.cn/wp-json/wp/v2/posts/".$_REQUEST['id'];
 }
 else
 {
-  $urlhttps = "http://www.glimmer.cn/wp-json/wp/v2/posts?".$parastr;
+  $urlhttps = "http://glimmer.cn/wp-json/wp/v2/posts?".$parastr;
 }
 //echo $urlhttps;
 //$handle = fopen($urlhttps, "rb");
