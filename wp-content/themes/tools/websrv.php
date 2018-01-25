@@ -1,7 +1,7 @@
-﻿<?php
+<?php
 // Silence is golden.
 
-$parastr=$_SERVER["QUERY_STRING"];
+//$parastr=$_SERVER["QUERY_STRING"];
 $flag = $_REQUEST['flag'];
 //echo $flag;
 //if($flag==2)
@@ -14,7 +14,7 @@ ini_set("soap.wsdl_cache_enabled", "1");
 //ini_set("soap.wsdl_cache_ttl", "5"); //86400	5
 
 /* Initialize webservice with your WSDL */
-$client = new SoapClient("http://www.smartvast.cn/API.asmx?wsdl");
+$client = new SoapClient("http://www.smartvast.cn/ApiEx.asmx?wsdl");
 
 if($client)
 { 
@@ -22,43 +22,13 @@ if($client)
   $client->decode_utf8 = false;
   $client->xml_encoding = 'utf-8';
 
-  if($flag=='test')
+  if($flag=='jsoncmd')
   {
     $params = array(
-        "msg" => $_REQUEST['msg'],
+	"jsonstr" => $_REQUEST['jsonstr'],
     );
   }
-  else if($flag=='checklogin')
-  {
-    $params = array(
-        "uid" => $_REQUEST['uid'],
-        "psw" => $_REQUEST['psw'],
-        "xtsb" => $_REQUEST['xtsb'],
-    );
-  }
-  else if($flag=='getuserallxtsb')
-  {
-    $params = array(
-	"uid" => $_REQUEST['uid'],
-	"userTbId" => $_REQUEST['usertbid'],
-    );
-  }
-  else if($flag=='checkuseridpsw')
-  {
-    $params = array(
-	"userTbId" => $_REQUEST['usertbid'],
-	"uid" => $_REQUEST['uid'],
-	"psw" => $_REQUEST['psw'],
-    );
-  }
-  else if($flag=='checkuidpsw')
-  {
-    $params = array(
-	"uid" => $_REQUEST['uid'],
-	"psw" => $_REQUEST['psw'],
-    );
-  }
-  else if($flag=='jsoncmd')
+  else if($flag=='api')
   {
     $params = array(
 	"jsonstr" => $_REQUEST['jsonstr'],
